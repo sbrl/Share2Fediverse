@@ -1,10 +1,13 @@
 "use strict";
 
 export default {
+	other: {
+		name: "Other",
+		url: "/share?text={text}"
+	},
 	mastodon: {
 		name: "Mastodon",
-		url: "/share?text={text}",
-		default: true
+		url: "/share?text={text}"
 	},
 	diaspora: {
 		name: "Diaspora",

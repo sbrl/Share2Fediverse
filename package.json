@@ -27,5 +27,8 @@
 	"homepage": "https://github.com/sbrl/share2fediverse#readme",
 	"devDependencies": {
 		"esbuild": "^0.19.5"
+	},
+	"dependencies": {
+		"transliteration": "^2.3.5"
 	}
 }

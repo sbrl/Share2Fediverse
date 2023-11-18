@@ -82,7 +82,7 @@ button {
 	padding: 0.4em 0.5em;
 	cursor: pointer;
 	
-	border: none;
+	border: 1px solid #fff2;
 	backdrop-filter: blur(10px);
 	background: hsla(0, 0%, 98%, 0.6);
 	
@@ -93,6 +93,7 @@ button {
 	box-shadow: 0 .1em .2em var(--shadow-l);
 	transition: box-shadow .25s, transform .25s;
 }
+
 button:hover {
 	box-shadow: 0 .25em .65em var(--shadow);
 	transform: translateY(-.25em)
@@ -104,6 +105,28 @@ button:active {
 
 .software-picker {
 	margin: 1em 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(5em, 1fr));
+}
+.software-picker > span {
+	cursor: pointer;
+	margin: 0.2em;
+	text-align: center;
+	border: 1px solid #fff2;
+	backdrop-filter: blur(10px);
+	background: hsla(0, 0%, 98%, 0.6);
+	
+	box-shadow: 0 .1em .2em var(--shadow-l);
+	transition: box-shadow .25s, transform .25s;
+}
+.software-picker>span:hover {
+	box-shadow: 0 .25em .65em var(--shadow);
+	transform: translateY(-.15em)
+}
+
+.software-picker>span:active {
+	box-shadow: 0 0 .25em var(--shadow);
+	transform: translateY(.05em)
 }
 
 
@@ -111,4 +134,7 @@ button:active {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+}
+.gone {
+	display: none;
 }
