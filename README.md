@@ -9,7 +9,7 @@ If your favourite Fediverse software isn't listed, please [open an issue](https:
 
 A demo site can be seen here:
 
-[TODO INSERT LINK HERE]
+<https://starbeamrainbowlabs.com/share2fediverse>
 
 
 ## Usage
