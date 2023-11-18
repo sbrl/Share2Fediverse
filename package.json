@@ -1,0 +1,31 @@
+{
+	"name": "share2fediverse",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Simple share page to share content to the Fediverse",
+	"main": "src/js/index.mjs",
+	"scripts": {
+		"build": "node ./src/esbuild.mjs",
+		"watch": "ES_MODE=\"watch\" node ./src/esbuild.mjs"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sbrl/share2fediverse.git"
+	},
+	"keywords": [
+		"share",
+		"fediverse",
+		"mastodon",
+		"pixelfed",
+		"activitypub"
+	],
+	"author": "Starbeamrainbowlabs",
+	"license": "Apache-2.0",
+	"bugs": {
+		"url": "https://github.com/sbrl/share2fediverse/issues"
+	},
+	"homepage": "https://github.com/sbrl/share2fediverse#readme",
+	"devDependencies": {
+		"esbuild": "^0.19.5"
+	}
+}
