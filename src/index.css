@@ -17,8 +17,8 @@ body {
 	color: #282C34;
 	display: grid;
 	grid-template-columns: 20% auto 20%;
-	grid-template-rows: 5% auto minmax(5em,1fr);
-	grid-template-areas: ". . ."
+	grid-template-rows: minmax(5%, 3em) auto minmax(5em,1fr);
+	grid-template-areas: "header header header"
 		". main ."
 		". footer .";
 }
