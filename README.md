@@ -65,7 +65,7 @@ Contributions are very welcome - both issues and pull requests! Please mention i
 If you're feeling that way inclined, the sponsor button at the top of the page (if you're on GitHub) will take you to my [Liberapay profile](https://liberapay.com/sbrl) if you'd like to donate to say an extra thank you :-)
 
 
-## Other awesome projects
+## Related projects
 Diversity is important in the Fediverse, so do check out these other awesome related projects:
 
 - [Fediverse share](https://github.com/Uden-AI/fediverse-share) - a cool set of share buttons
