@@ -7,6 +7,7 @@ import software_db from './lib/software_db.mjs';
 import ui_filter from "./lib/ui_filter.mjs";
 import ui_populate from "./lib/ui_populate.mjs";
 import ui_select from "./lib/ui_select.mjs";
+import ui_share from "./lib/ui_share.mjs";
 
 function load_software() {
 	const el_container = document.querySelector(".software-picker");
@@ -28,6 +29,7 @@ window.addEventListener("load", () => {
 	const el_instance = document.querySelector("#instance-url");
 	const el_search = document.querySelector("#software");
 	const el_container = document.querySelector(".software-picker");
+	const el_share = document.querySelector("#share-button");
 	
 	ui_filter(
 		el_search,
@@ -40,6 +42,13 @@ window.addEventListener("load", () => {
 	);
 	
 	ui_populate(
+		el_text,
+		el_instance,
+		el_search
+	);
+	
+	ui_share(
+		el_share,
 		el_text,
 		el_instance,
 		el_search
