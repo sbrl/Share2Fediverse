@@ -1,0 +1,104 @@
+#!/usr/bin/env bash
+# Make sure the current directory is the location of this script to simplify matters
+cd "$(dirname "$(readlink -f "$0")")" || { echo "Error: Failed to cd to script directory" >&2; exit 1; };
+
+###
+# Custom Settings
+###
+
+dirpath_build="./dist";
+
+# Deployment settings
+deploy_ssh_user="ci";
+deploy_ssh_host="starbeamrainbowlabs.com";
+deploy_ssh_port=2403;
+
+deploy_root_dir="Share2Fediverse";
+
+###############################################################################
+
+log_msg() {
+	echo "[$SECONDS] >>> $*" >&2;
+}
+
+log_msg "Beginning build";
+
+
+log_msg "Installing dependencies";
+npm install;
+
+log_msg "Running build";
+npm run build;
+ec="$?";
+
+if [[ "${ec}" -ne 0 ]]; then
+	log_msg "Error: npm run build exited with code $ec";
+	exit "${ec}";
+fi
+
+log_msg "Build complete!";
+
+
+branch="$(basename "${GIT_REF_NAME}")";
+if [[ "${branch}" != "main" ]]; then
+	log_msg "Deployment only occurs on branch main, but we're on branch ${branch} right now";
+	exit 0;
+fi
+
+log_msg "Deploying to ${deploy_ssh_host}....";
+if [ "${SSH_KEY_PATH}" == "" ]; then
+	echo "${FRED}${HC}Error: Can't find the SSH key as the environment variable SSH_KEY_PATH isn't set.${RS}" >&2;
+	stage_end 1;
+fi
+	
+
+# Acquire an exclusive project-wide lock so that we only upload stuff one-at-a-time
+log_msg "Acquiring upload lock";
+exec 9<"${WORKSPACE}";
+flock --exclusive 9;
+ec="$?";
+if [[ "${ec}" -ne 0 ]]; then
+	log_msg "Error: Failed to acquire upload lock";
+	exit "${ec}";
+fi
+
+log_msg "Cleaning up old release";
+lftp_commands_filename="$(mktemp --suffix "-commands.lftp")";
+(
+	echo "set sftp:connect-program 'ssh -x -i ${SSH_KEY_PATH}'";
+	# We have an extra : before the @ here to avoid the password prompt
+	echo "connect sftp://${deploy_ssh_user}:@${deploy_ssh_host}:${deploy_ssh_port}";
+	echo "rm -r \"${deploy_root_dir}/dist\"";
+	echo "bye";
+) >"${lftp_commands_filename}";
+
+log_msg "lftp version";	
+lftp --version;
+log_msg "lftp commands";	
+cat "${lftp_commands_filename}";
+log_msg "Running lftp";	
+lftp -f "${lftp_commands_filename}";
+ec="$?";
+if [[ "${ec}" -ne 0 ]]; then
+	log_msg "Error: lftp exited with code ${ec}";
+	exit "${ec}";
+fi
+	
+log_msg "Uploading new release";
+sftp -i "${SSH_KEY_PATH}" -P "${deploy_ssh_port}" -o PasswordAuthentication=no "${deploy_ssh_user}@${deploy_ssh_host}" << SFTPCOMMANDS
+mkdir ${deploy_root_dir}/dist
+put -r ${dirpath_build}/* ${deploy_root_dir}/dist/
+bye
+SFTPCOMMANDS
+
+ec="$?";
+if [[ "${ec}" -ne 0 ]]; then
+	log_msg "Failed to upload new release (exit code ${ec})";
+	exit "${ec}";
+fi
+
+log_msg "Releasing lock";
+exec 9>&- # Close file descriptor 9 and release the lock
+
+
+log_msg "Deploy complete!";
