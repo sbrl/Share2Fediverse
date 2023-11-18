@@ -35,7 +35,13 @@ main {
 
 footer {
 	grid-area: footer;
-	min-height: 10em;
+	margin-top: 8em;
+	text-align: center;
+	
+	background: hsla(0, 0%, 90%, 0.5);
+	backdrop-filter: blur(10px);
+	border: 1px solid #fff2;
+	box-shadow: 0 .1em .5em var(--shadow-l);
 }
 
 h1 {
@@ -80,6 +86,7 @@ textarea {
 
 button {
 	display: inline-block;
+	margin: 2em 0 0 0;
 	padding: 0.4em 0.5em;
 	cursor: pointer;
 	
@@ -87,7 +94,7 @@ button {
 	backdrop-filter: blur(10px);
 	background: hsla(0, 0%, 98%, 0.6);
 	
-	font-size: 1.3rem;
+	font-size: 1.4rem;
 	font-weight: bold;
 	
 	
@@ -146,7 +153,11 @@ button:active {
 .gone {
 	display: none;
 }
-
+.icon {
+	vertical-align: middle;
+	max-width: 1.1em;
+	max-height: 1.1em;
+}
 
 /* ************************************************ */
 /* ************************************************ */

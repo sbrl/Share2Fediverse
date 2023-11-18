@@ -13,6 +13,8 @@ const outdir = path.resolve(__dirname, "../dist");
 const copy = [
 	"../favicon.png",
 	"../favicon.svg",
+	"images/sbrl.png",
+	"images/git.svg"
 ];
 
 /**
