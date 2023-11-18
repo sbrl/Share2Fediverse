@@ -117,7 +117,7 @@ button:active {
 	background: hsla(0, 0%, 98%, 0.6);
 	
 	box-shadow: 0 .1em .2em var(--shadow-l);
-	transition: box-shadow .25s, transform .25s;
+	transition: box-shadow .25s, transform .25s, background .2s;
 }
 .software-picker>span:hover {
 	box-shadow: 0 .25em .65em var(--shadow);
@@ -127,6 +127,9 @@ button:active {
 .software-picker>span:active {
 	box-shadow: 0 0 .25em var(--shadow);
 	transform: translateY(.05em)
+}
+.software-picker>span.active {
+	background: hsla(25, 90%, 75%, 0.9);
 }
 
 
