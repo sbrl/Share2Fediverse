@@ -65,5 +65,14 @@ Contributions are very welcome - both issues and pull requests! Please mention i
 If you're feeling that way inclined, the sponsor button at the top of the page (if you're on GitHub) will take you to my [Liberapay profile](https://liberapay.com/sbrl) if you'd like to donate to say an extra thank you :-)
 
 
+## Other awesome projects
+Diversity is important in the Fediverse, so do check out these other awesome related projects:
+
+- [Fediverse share](https://github.com/Uden-AI/fediverse-share) - a cool set of share buttons
+- [Share₂Fedi](https://github.com/kytta/share2fedi) - Cross-instance share page for Mastodon
+
+Got a related project that's not listed here? Open a pull request to get added!
+
+
 ## License
 Share2Fediverse is released under the Apache License 2.0, a permissive open source licence. The full license text is included in the [`LICENSE`](https://github.com/sbrl/Share2Fediverse/blob/main/LICENSE) file in this repository. Tldr legal have a [great summary](https://tldrlegal.com/license/apache-license-2-0-apache-2-0) of the license if you're interested.
