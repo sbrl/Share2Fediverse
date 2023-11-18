@@ -48,6 +48,10 @@ h1 {
 	text-align: center;
 }
 
+img {
+	max-width: 100%;
+}
+
 .input-control {
 	margin: 1em 0;
 }
@@ -108,7 +112,7 @@ button:active {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(5em, 1fr));
 }
-.software-picker > span {
+.software-picker > div {
 	cursor: pointer;
 	margin: 0.2em;
 	text-align: center;
@@ -119,17 +123,21 @@ button:active {
 	box-shadow: 0 .1em .2em var(--shadow-l);
 	transition: box-shadow .25s, transform .25s, background .2s;
 }
-.software-picker>span:hover {
+.software-picker > div:hover {
 	box-shadow: 0 .25em .65em var(--shadow);
 	transform: translateY(-.15em)
 }
 
-.software-picker>span:active {
+.software-picker > div:active {
 	box-shadow: 0 0 .25em var(--shadow);
 	transform: translateY(.05em)
 }
-.software-picker>span.active {
+.software-picker > div.active {
 	background: hsla(25, 90%, 75%, 0.9);
+}
+.software-picker img {
+	margin: 10%;
+	max-width: 80%;
 }
 
 

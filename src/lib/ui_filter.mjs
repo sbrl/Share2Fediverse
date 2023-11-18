@@ -10,6 +10,7 @@ function update_filter(el_search, el_container) {
 	const query = normalise(el_search.value);
 	
 	for(const child of [...el_container.children]) {
+		child.classList.remove("active", "inactive");
 		if(normalise(child.textContent).indexOf(query) === -1) {
 			child.classList.add("gone");
 		}

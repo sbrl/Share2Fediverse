@@ -13,11 +13,19 @@ function load_software() {
 	const el_container = document.querySelector(".software-picker");
 	for (const software in software_db) {
 		const def = software_db[software];
+		console.log(def);
 		
-		const el = document.createElement("span");
-		el.textContent = def.name;
+		
+		const el = document.createElement("div");
 		el.dataset.url = def.url;
 		el.dataset.name = software;
+		
+		const el_text = document.createElement("span");
+		el_text.append(document.createTextNode(def.name));
+		const el_image = document.createElement("img");
+		el_image.src = def.image;
+		el.append(el_image, el_text);
+		
 		el_container.appendChild(el);
 	}
 }
