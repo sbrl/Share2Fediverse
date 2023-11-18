@@ -11,9 +11,9 @@ const __dirname = import.meta.url.slice(7, import.meta.url.lastIndexOf("/"));
 const outdir = path.resolve(__dirname, "../dist");
 
 const copy = [
-	// "../favicon.png",
-	// "../favicon.svg",
-]
+	"../favicon.png",
+	"../favicon.svg",
+];
 
 /**
  * Hashes the contents of a file.
