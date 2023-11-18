@@ -62,7 +62,7 @@ function make_context() {
 	return {
 		entryPoints: [
 			"./index.mjs",
-			"./index.css",
+			// "./index.css",
 		].map(filepath => path.resolve(__dirname, filepath)),
 		outdir,
 		bundle: true,
@@ -72,6 +72,7 @@ function make_context() {
 		loader: {
 			".html": "text",
 			".svg": "file",
+			".png": "file",
 			".woff2": "file",
 			".woff": "file",
 			".eot": "file",

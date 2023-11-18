@@ -7,22 +7,33 @@
 	<body>
 		<main>
 			<h1>Share2Fediverse logo here</h1>
-
+			
 			<div class="input-control large">
-				<input type="text" name="share-payload" id="share-payload" />
+				<label for="share-payload">Text</label>
+				<textarea name="share-payload" id="share-payload"></textarea>
 			</div>
-
+			
 			<div class="input-control">
-				<label for="instance-url">Instance URL:</label>
+				<label for="instance-url">Instance URL</label>
 				<input type="url" name="instance-url" id="instance-url" />
 			</div>
-
-			<div class="software-picker"></div>
-
+			
 			<div class="input-control">
+				<label for="software">Instance Software</label>
+				<input type="search" name="software" id="software" />
+				TODO Items should appear here and get filtered on. TODO images
+				<div class="software-picker">
+				</div>
+			</div>
+			
+			<div class="input-control flex-centre">
 				<button id="share-button">Share!</button>
 			</div>
 		</main>
+		
+		<footer>
+			
+		</footer>
 
 		<!---------------->
 		<link rel="stylesheet" href="./index.css?hash={CSS_HASH_SHORT}" integrity="{ALGO}-{CSS_HASH}" />
