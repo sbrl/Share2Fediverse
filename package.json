@@ -2,7 +2,7 @@
 	"name": "share2fediverse",
 	"version": "1.0.0",
 	"private": true,
-	"description": "Simple share page to share content to the Fediverse",
+	"description": "Simple static share page to share content to the Fediverse",
 	"main": "src/js/index.mjs",
 	"scripts": {
 		"build": "node ./src/esbuild.mjs",
